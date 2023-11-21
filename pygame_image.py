@@ -8,13 +8,17 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")
     ton03 = pg.transform.flip(pg.image.load("ex01/fig/3.png"),True,False)
+    ton03a = pg.transform.rotozoom(ton03,10,1)
+    ton_li = [ton03,ton03a]
     tmr = 0
+    flg = True
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-
+        flg = flg==False
         screen.blit(bg_img, [0, 0])
-        screen.blit(ton03,[100,100])
+        screen.blit(ton_li[flg],[300,200])
+        flg *= -1
         pg.display.update()
         tmr += 1        
         clock.tick(10)
