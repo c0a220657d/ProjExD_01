@@ -17,10 +17,10 @@ def main():
             if event.type == pg.QUIT: return
         screen.blit(bg_img, [bg_x, 0])
         screen.blit(ton_li[tmr%2],[300,200])
-        bg_x %= 1600
+        bg_x = (tmr%1600)*-1
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(100)
 
 
 if __name__ == "__main__":
